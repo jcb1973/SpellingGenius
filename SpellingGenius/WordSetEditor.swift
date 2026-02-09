@@ -15,7 +15,22 @@ struct WordSetEditor: View {
     
     var body: some View {
         NavigationStack {
+            
+            
+            
             Form {
+
+                Section {
+                } header: {
+                    Button {
+                        showingScanner = true
+                    } label: {
+                        Label("Skanna läxa", systemImage: "doc.text.viewfinder")
+                    }
+                    .buttonStyle(.bordered)
+                }
+
+
                 Section("Information") {
                     TextField("Titel", text: $title)
                     DatePicker("Datum", selection: $date, displayedComponents: .date)
@@ -25,22 +40,14 @@ struct WordSetEditor: View {
                     ForEach($pairs) { $pair in
                         HStack {
                             TextField("Svenska", text: $pair.swedish)
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled(true)
                             Divider()
                             TextField("Engelska", text: $pair.english)
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled(true)
                         }
                     }
                     .onDelete(perform: deletePair)
                     
                     Button(action: { pairs.append(TempWordPair()) }) {
                         Label("Lägg till ord", systemImage: "plus.circle.fill")
-                    }
-
-                    Button(action: { showingScanner = true }) {
-                        Label("Skanna", systemImage: "doc.text.viewfinder")
                     }
                 }
             }
@@ -51,7 +58,6 @@ struct WordSetEditor: View {
                     if let scannedTitle, !scannedTitle.isEmpty, title.isEmpty {
                         title = scannedTitle
                     }
-                    // Remove trailing empty placeholder row before appending
                     if let last = pairs.last, last.swedish.isEmpty && last.english.isEmpty {
                         pairs.removeLast()
                     }
@@ -62,17 +68,18 @@ struct WordSetEditor: View {
                 }
             }
             .toolbar {
+                // Cleaned up toolbar with just the text buttons
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Avbryt") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Spara") { save() }
                         .disabled(title.isEmpty)
+                        .fontWeight(.bold)
                 }
             }
         }
     }
-    
     private func loadExistingData() {
         // Only load if we are editing an existing set
         guard let wordSet = wordSet else { return }
