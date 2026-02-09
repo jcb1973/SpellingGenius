@@ -29,9 +29,22 @@
 		4DEEABA02F38F82F0026B0C6 /* SpellingGeniusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpellingGeniusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4D0DD4F12F39CB88007A0103 /* Exceptions for "SpellingGenius" folder in "SpellingGenius" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4DEEAB862F38F82D0026B0C6 /* SpellingGenius */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4DEEAB892F38F82D0026B0C6 /* SpellingGenius */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4D0DD4F12F39CB88007A0103 /* Exceptions for "SpellingGenius" folder in "SpellingGenius" target */,
+			);
 			path = SpellingGenius;
 			sourceTree = "<group>";
 		};
@@ -400,6 +413,8 @@
 				DEVELOPMENT_TEAM = RS6S79WR22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpellingGenius/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kameran används för att skanna ordlistor";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +447,8 @@
 				DEVELOPMENT_TEAM = RS6S79WR22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpellingGenius/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kameran används för att skanna ordlistor";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
