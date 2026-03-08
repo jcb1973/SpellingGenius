@@ -17,6 +17,13 @@
 - **Resources:** Use Asset Catalog symbols; no magic strings or numbers.
 - **Error Handling:** Use custom `Error` enums. No `fatalError`.
 
+## Testing Guidelines
+- **Coverage:** Add unit tests for all non-trivial logic (branching, async, state, errors).
+- **Async-first:** Prefer `async`/`await` tests; avoid `XCTestExpectation` unless required.
+- **Behavioral:** Test observable behavior, not implementation details.
+- **Deterministic:** Inject time, randomness, and external dependencies.
+- **Isolated:** No real network, file system, or persistent store I/O.
+
 ## Output Guidelines
 - Provide complete, compilable code.
 - Skip basic explanations or alternative architecture suggestions.

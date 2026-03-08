@@ -29,22 +29,9 @@
 		4DEEABA02F38F82F0026B0C6 /* SpellingGeniusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpellingGeniusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4D0DD4F12F39CB88007A0103 /* Exceptions for "SpellingGenius" folder in "SpellingGenius" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 4DEEAB862F38F82D0026B0C6 /* SpellingGenius */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4DEEAB892F38F82D0026B0C6 /* SpellingGenius */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				4D0DD4F12F39CB88007A0103 /* Exceptions for "SpellingGenius" folder in "SpellingGenius" target */,
-			);
 			path = SpellingGenius;
 			sourceTree = "<group>";
 		};
