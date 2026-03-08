@@ -16,23 +16,24 @@ struct PracticeScreen: View {
     
     // Quiz State
     @State private var tts = TTSManager()
+    @State private var quizWords: [WordPair] = []
     @State private var currentIndex = 0
     @State private var userInput = ""
     @State private var showingFeedback = false
     @State private var isCorrect = false
     @State private var attempts: [Attempt] = []
-    
+
     // Computed property for the current word
     var currentWord: WordPair? {
-        guard currentIndex < wordSet.words.count else { return nil }
-        return wordSet.words[currentIndex]
+        guard currentIndex < quizWords.count else { return nil }
+        return quizWords[currentIndex]
     }
 
     var body: some View {
         VStack(spacing: 30) {
             if let word = currentWord {
                 // Progress indicator
-                ProgressView(value: Double(currentIndex), total: Double(wordSet.words.count))
+                ProgressView(value: Double(currentIndex), total: Double(quizWords.count))
                     .padding()
 
                 Spacer()
@@ -76,16 +77,17 @@ struct PracticeScreen: View {
 
             } else {
                 // Summary/Finished State
-                SummaryScreen(attempts: attempts, totalWords: wordSet.words.count)
+                SummaryScreen(attempts: attempts, totalWords: quizWords.count)
             }
             
                
         }
         .onAppear {
+            quizWords = wordSet.words
             Task {
                 // Delay for 500 milliseconds (0.5 seconds)
                 try? await Task.sleep(for: .seconds(0.5))
-                
+
                 if let word = currentWord {
                     tts.speakSwedish(word.swedish)
                 }
@@ -146,7 +148,7 @@ struct PracticeScreen: View {
                     .font(.title)
             }
             
-            Button(currentIndex + 1 < wordSet.words.count ? "Next Word" : "See Results") {
+            Button(currentIndex + 1 < quizWords.count ? "Next Word" : "See Results") {
                 nextWord()
             }
             .buttonStyle(.bordered)
@@ -160,7 +162,7 @@ struct PracticeScreen: View {
                 .bold()
             
             let correctCount = attempts.filter { $0.correct }.count
-            Text("\(correctCount) out of \(wordSet.words.count) correct")
+            Text("\(correctCount) out of \(quizWords.count) correct")
                 .font(.title2)
 
             Button("Done") {
